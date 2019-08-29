@@ -1,0 +1,4 @@
+{
+  "{src,public,webpack}/**/*.js": ["eslint --fix", "git add"],
+  "{src,public,webpack}/**/*.{js,md,mdx,json,html}": ["prettier --write", "git add"]
+}
