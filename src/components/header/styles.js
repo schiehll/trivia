@@ -3,10 +3,11 @@ import styled, { css } from "styled-components"
 export const Header = styled.header`
   ${({ theme: { colors, spacing, font, border } }) => css`
     position: relative;
+    text-align: center;
 
     h1 {
       padding: 0;
-      margin: 0 0 ${spacing.base}px 0;
+      margin: 0 0 ${spacing.small}px 0;
       font-size: ${font.sizes.default}px;
       font-weight: ${font.weights.bold};
     }
@@ -15,7 +16,7 @@ export const Header = styled.header`
       margin: 0;
       padding: 0;
       font-size: ${font.sizes.small}px;
-      font-weight: ${font.weights.normal};
+      font-weight: ${font.weights.thin};
       color: ${colors.gray[6]};
     }
 

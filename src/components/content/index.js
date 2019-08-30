@@ -1,8 +1,39 @@
 import React from "react"
+import DOMPurify from "dompurify"
+import Loader from "components/loader"
+
 import * as S from "./styles"
 
-const Content = ({ children, ...props }) => {
-  return <S.Content {...props}>{children}</S.Content>
+const Content = ({ children, loading, ...props }) => {
+  if (loading) {
+    return (
+      <S.Content {...props}>
+        <Loader />
+      </S.Content>
+    )
+  }
+
+  const onlyStrings = () => {
+    let onlyStrings = true
+    React.Children.forEach(children, child => {
+      if (typeof child !== "string") {
+        onlyStrings = false
+      }
+    })
+
+    return onlyStrings
+  }
+
+  if (!onlyStrings()) {
+    return <S.Content {...props}>{children}</S.Content>
+  }
+
+  return (
+    <S.Content
+      {...props}
+      dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(children) }}
+    />
+  )
 }
 
 export default Content

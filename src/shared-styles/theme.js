@@ -29,6 +29,7 @@ const theme = {
     family: "Arial",
     weights: {
       normal: 400,
+      thin: 200,
       bold: 600
     },
     sizes: {

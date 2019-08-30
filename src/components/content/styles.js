@@ -7,7 +7,7 @@ export const Content = styled.main`
     align-items: center;
     padding: ${spacing.huge}px;
     min-height: 400px;
-
+    text-align: center;
     font-size: ${font.sizes.big}px;
   `}
 `

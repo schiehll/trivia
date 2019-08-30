@@ -1,34 +1,39 @@
-import React, { useState } from "react"
+import React from "react"
 import Header from "components/header"
 import Card from "components/card"
 import Content from "components/content"
 import Footer from "components/footer"
 import Button from "components/button"
-import * as S from "./styles"
+import Emoji from "components/emoji"
+import PageWrapper from "components/page-wrapper"
+import QUIZ_CONFIG from "utils/quizConfig"
+import { PATHS } from "routes"
 
-const Home = () => {
-  const [percent, setPercent] = useState(30)
+const Home = ({ navigate }) => {
+  const begin = () => {
+    navigate(PATHS.QUIZ)
+  }
 
   return (
-    <S.Wrapper>
+    <PageWrapper>
       <Card>
-        <Header percent={percent}>
-          <h1>Title</h1>
-          <h2>Subtitle</h2>
+        <Header>
+          <h1>Welcome to the Trivia Challenge!</h1>
+          <h2>
+            You will be presented with {QUIZ_CONFIG.AMOUNT}{" "}
+            <strong>True</strong> or <strong>False</strong> questions
+          </h2>
         </Header>
-        <Content>Question</Content>
+        <Content>
+          Can you score <Emoji description="100-emoji">💯</Emoji> ?
+        </Content>
         <Footer>
-          <Button
-            onClick={() => {
-              setPercent(percent + 10)
-            }}
-          >
-            True
+          <Button onClick={begin}>
+            <Emoji description="begin-emoji">🤞</Emoji> Begin
           </Button>
-          <Button>False</Button>
         </Footer>
       </Card>
-    </S.Wrapper>
+    </PageWrapper>
   )
 }
 

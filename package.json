@@ -41,7 +41,9 @@
   },
   "dependencies": {
     "@reach/router": "^1.2.1",
+    "camelcase-object-deep": "^1.1.1",
     "css-elevation": "^1.0.2",
+    "dompurify": "^1.0.11",
     "open-color": "^1.7.0",
     "react": "^16.9.0",
     "react-dom": "^16.9.0",

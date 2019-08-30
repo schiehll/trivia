@@ -34,6 +34,12 @@ export const Button = styled.button`
       color: ${colors.white};
     }
 
+    &:disabled {
+      background: ${colors.gray[2]};
+      color: ${colors.gray[5]};
+      cursor: progress;
+    }
+
     transition: all 0.3s ease;
   `}
 `

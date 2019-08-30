@@ -5,6 +5,7 @@ import PageLoader from "components/page-loader"
 
 export const PATHS = {
   HOME: "/",
+  QUIZ: "/quiz",
   NO_MATCH: "*"
 }
 
