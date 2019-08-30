@@ -17,7 +17,7 @@ export const Header = styled.header`
       padding: 0;
       font-size: ${font.sizes.small}px;
       font-weight: ${font.weights.thin};
-      color: ${colors.gray[6]};
+      color: ${colors.gray[7]};
     }
 
     display: flex;
