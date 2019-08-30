@@ -1,11 +1,13 @@
 import colors from "open-color/open-color"
+import { cssElevation } from "css-elevation"
 
 const baseSpacing = 8
 
 const theme = {
   colors: {
     ...colors,
-    primary: colors.violet[6]
+    text: colors.gray[9],
+    border: colors.gray[2]
   },
 
   spacing: {
@@ -16,9 +18,11 @@ const theme = {
     huge: baseSpacing * 5
   },
 
+  elevation: level => cssElevation({ z: level }),
+
   border: {
-    size: 2,
-    radius: 5
+    size: 10,
+    radius: 10
   },
 
   font: {
@@ -28,11 +32,9 @@ const theme = {
       bold: 600
     },
     sizes: {
-      default: 16,
-      small: 12,
-      big: 18,
-      h1: 42,
-      h2: 24
+      default: 30,
+      small: 22,
+      big: 40
     }
   },
 

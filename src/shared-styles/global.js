@@ -7,8 +7,8 @@ const GlobalStyles = createGlobalStyle`${({ theme: { colors, font } }) => css`
     font-weight: ${font.weights.normal};
     margin: 0;
     padding: 0;
-    color: ${colors.gray[8]};
-    overflow-y: scroll;
+    background-color: ${colors.orange[4]};
+    color: ${colors.text};
     overflow-x: hidden;
   }
 

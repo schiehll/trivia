@@ -1,7 +1,7 @@
 import React, { Suspense } from "react"
 import { Router } from "@reach/router"
 import lazyWithPreload from "utils/lazyWithPreload"
-import Loader from "components/loader"
+import PageLoader from "components/page-loader"
 
 export const PATHS = {
   HOME: "/",
@@ -33,7 +33,7 @@ export const screenRoutes = screens.reduce((screenRoutes, screen) => {
 }, [])
 
 const Routes = () => (
-  <Suspense fallback={<Loader />}>
+  <Suspense fallback={<PageLoader />}>
     <Router>
       {screenRoutes.map(({ screen, path, component: Screen }) => {
         return <Screen key={screen} path={path} default={path === "*"} />
