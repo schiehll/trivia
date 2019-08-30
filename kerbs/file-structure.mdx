@@ -1,0 +1,214 @@
+import FileTree from "components/file-tree"
+
+export const meta = {
+  title: "File Structure",
+  order: 4
+}
+
+# File Structure
+
+<FileTree
+  paths={[
+    {
+      name: "src",
+      description: "Here's where the code for the app lives",
+      children: [
+        {
+          name: "api",
+          description:
+            "The code for making requests to external APIs should be here",
+          children: [
+            {
+              name: "fetchQuestions.js",
+              description: (
+                <>
+                  This file contains de `fetch` request to the trivia API.
+                  <div>
+                    After we get the returned JSON, we sanitize the question
+                    content as it contains HTML and could be a XSS attack
+                    vector.
+                  </div>
+                </>
+              )
+            }
+          ]
+        },
+        {
+          name: "components",
+          description: (
+            <>
+              All react components lives here.
+              <div>Each component have an index and a syles file.</div>
+              <div>
+                Styles files are the only files that have styled-components.
+              </div>
+            </>
+          ),
+          children: []
+        },
+        {
+          name: "routes",
+          description: (
+            <>
+              Here we have the code for the app routes.
+              <div>
+                We are using `preval` to get the screens from the screen folder,
+                making it super simple to add a new screen.
+              </div>
+              <div>
+                Also, we are using code-splitting to get the code for each
+                screen only when we need it.
+              </div>
+            </>
+          ),
+          children: []
+        },
+        {
+          name: "screens",
+          description: (
+            <>
+              Each folder inside this one is a route.
+              <div>
+                All you have to do to add a new route to the app is create a new
+                folder here and add the path into the `PATHS` constant in the
+                routes file.
+              </div>
+              <div>
+                After that it should be working and code-splitted, being loaded
+                only when needed.
+              </div>
+            </>
+          ),
+          children: []
+        },
+        {
+          name: "shared-styles",
+          description: "Some styles utils and global styles.",
+          children: [
+            {
+              name: "global.js",
+              description: "The global styles."
+            },
+            {
+              name: "theme.js",
+              description:
+                "Here we have variables used to keep the style consistent throughout the whole app."
+            }
+          ]
+        },
+        {
+          name: "stores",
+          description: (
+            <>
+              Here lives the global stores for the app.
+              <div>
+                We are using `zustand` to manage the app state and it makes it
+                super simple, just one file per store, no boilerplate at all.
+              </div>
+            </>
+          ),
+          children: []
+        },
+        {
+          name: "utils",
+          description: "The name is auto explanatory.",
+          children: [
+            {
+              name: "quizConfig.js",
+              description:
+                "This file contains the amount of questions we want as well as the difficulty."
+            },
+            {
+              name: "lazyWithPreload.js",
+              description: (
+                <>
+                  This is a util that let us preload a screen if we need to.
+                  <div>
+                    We are using it to load the results screen while the user is
+                    answering the question for instance, because we know we will
+                    need it.
+                  </div>
+                </>
+              )
+            }
+          ]
+        }
+      ]
+    },
+    {
+      name: "webpack",
+      description: "Here is where the bundle configuration lives.",
+      children: [
+        {
+          name: "webpack.config.js",
+          description: "The webpack configuration."
+        },
+        {
+          name: "webpack.dev.js",
+          description:
+            "The base webpack configuration extended with some development specific configs."
+        }
+      ]
+    },
+    {
+      name: "kerbs",
+      description: "Where the files to this documentation lives.",
+      children: []
+    },
+    {
+      name: "public",
+      description: (
+        <>
+          Here's where public files should live.
+          <div>Currently we only have the HTML template file.</div>
+        </>
+      ),
+      children: [
+        {
+          name: "index.html",
+          description: "Our HTMl template file."
+        }
+      ]
+    },
+    {
+      name: "_redirects",
+      description: "This is used to tell Netlify how to handle our SPA."
+    },
+    {
+      name: ".eslint",
+      description: "Our eslint configuration."
+    },
+    {
+      name: ".gitignore",
+      description: "A list of files and folders that should be ignored by git."
+    },
+    {
+      name: ".huskyrc.json",
+      description: "The scripts we run on git hooks."
+    },
+    {
+      name: ".lintstagedrc",
+      description: "The scripts we run against the staged files."
+    },
+    {
+      name: ".prettierrc",
+      description: "Our prettier config."
+    },
+    {
+      name: ".kerbsrc.js",
+      description: "The configuration file for this documentation."
+    },
+    {
+      name: "jest.config.js",
+      description: "The jest configuration."
+    },
+    {
+      name: "package.json",
+      description: "Where we list our dependencies and set some scripts."
+    },
+    {
+      name: "setupTests.js",
+      description: "We use it to extend the default jest behaviour."
+    }
+  ]}
+/>

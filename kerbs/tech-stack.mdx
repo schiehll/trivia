@@ -1,0 +1,50 @@
+import List from "components/list"
+import LinkListItem from "components/link-list-item"
+
+export const meta = {
+  title: "Tech stack",
+  order: 5
+}
+
+# Tech Stack
+
+<List>
+  <LinkListItem
+    to="git"
+    description="For tracking changes in our source code during development"
+  />
+  <LinkListItem to="react" description="For build the app, basically" />
+  <LinkListItem
+    to="github"
+    name="Zustand"
+    href="https://github.com/react-spring/zustand"
+    description="To manage our state"
+  />
+  <LinkListItem to="jest" description="To test the app" />
+  <LinkListItem to="webpack" description="For creating our bundle" />
+  <LinkListItem
+    to="github"
+    name="DOM Purify"
+    href="https://github.com/cure53/DOMPurify"
+    description="To make sure that the HTML content from the API is safe"
+  />
+  <LinkListItem to="babel" description="So we can use all js features" />
+  <LinkListItem
+    to="github"
+    name="Styled Components"
+    href="https://github.com/styled-components"
+    description="For our scoped styles"
+  />
+  <LinkListItem
+    to="github"
+    name="Reach Router"
+    href="https://github.com/reach/router"
+    description="For our route needs"
+  />
+  <LinkListItem
+    to="github"
+    name="Kerbs"
+    href="https://github.com/schiehll/kerbs"
+    description="For write this documentation"
+  />
+</List>
