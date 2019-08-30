@@ -73,10 +73,10 @@ const Quiz = ({ navigate }) => {
         </Header>
         <Content loading={loading}>{question}</Content>
         <Footer loading={loading}>
-          <Button onClick={() => handleAnswer("True")}>
+          <Button data-testid="true-btn" onClick={() => handleAnswer("True")}>
             <Emoji description="true-emoji">👍</Emoji> True
           </Button>
-          <Button onClick={() => handleAnswer("False")}>
+          <Button data-testid="false-btn" onClick={() => handleAnswer("False")}>
             <Emoji description="false-emoji">👎</Emoji> False
           </Button>
         </Footer>

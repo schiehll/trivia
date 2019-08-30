@@ -28,7 +28,7 @@ const ErrorMessgae = ({ navigate, error }) => {
         </Header>
         <Content>{error}</Content>
         <Footer>
-          <Button onClick={goHome}>
+          <Button data-testid="go-home-btn" onClick={goHome}>
             <Emoji description="back-emoji">👈</Emoji> Try again
           </Button>
         </Footer>

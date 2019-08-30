@@ -61,7 +61,7 @@ const Results = ({ navigate }) => {
           <AnswersList answers={answers} />
         </Content>
         <Footer>
-          <Button onClick={goHome}>
+          <Button data-testid="play-again-btn" onClick={goHome}>
             <Emoji description="back-emoji">👈</Emoji> Play Again
           </Button>
         </Footer>

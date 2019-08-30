@@ -28,7 +28,7 @@ const Home = ({ navigate }) => {
           Can you score <Emoji description="100-emoji">💯</Emoji> ?
         </Content>
         <Footer>
-          <Button onClick={begin}>
+          <Button data-testid="begin-btn" onClick={begin}>
             <Emoji description="begin-emoji">🤞</Emoji> Begin
           </Button>
         </Footer>
