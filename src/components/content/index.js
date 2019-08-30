@@ -1,7 +1,12 @@
 import React from "react"
+import PropTypes from "prop-types"
 import Loader from "components/loader"
 
 import * as S from "./styles"
+
+const propTypes = {
+  loading: PropTypes.bool
+}
 
 const Content = ({ children, loading, ...props }) => {
   if (loading) {
@@ -29,5 +34,7 @@ const Content = ({ children, loading, ...props }) => {
 
   return <S.Content {...props} dangerouslySetInnerHTML={{ __html: children }} />
 }
+
+Content.propTypes = propTypes
 
 export default Content

@@ -1,4 +1,5 @@
 import React from "react"
+import PropTypes from "prop-types"
 import Header from "components/header"
 import Card from "components/card"
 import Content from "components/content"
@@ -7,6 +8,11 @@ import Button from "components/button"
 import Emoji from "components/emoji"
 import PageWrapper from "components/page-wrapper"
 import { PATHS } from "routes"
+
+const propTypes = {
+  error: PropTypes.string.isRequired,
+  navigate: PropTypes.func.isRequired
+}
 
 const ErrorMessgae = ({ navigate, error }) => {
   const goHome = () => {
@@ -30,5 +36,7 @@ const ErrorMessgae = ({ navigate, error }) => {
     </PageWrapper>
   )
 }
+
+ErrorMessgae.propTypes = propTypes
 
 export default ErrorMessgae

@@ -1,4 +1,9 @@
 import React from "react"
+import PropTypes from "prop-types"
+
+const propTypes = {
+  description: PropTypes.string.isRequired
+}
 
 const Emoji = ({ children, description, ...props }) => {
   return (
@@ -7,5 +12,7 @@ const Emoji = ({ children, description, ...props }) => {
     </span>
   )
 }
+
+Emoji.propTypes = propTypes
 
 export default Emoji

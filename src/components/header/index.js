@@ -1,5 +1,10 @@
 import React from "react"
+import PropTypes from "prop-types"
 import * as S from "./styles"
+
+const propTypes = {
+  percent: PropTypes.number
+}
 
 const Header = ({ percent = 0, children, ...props }) => {
   return (
@@ -9,5 +14,7 @@ const Header = ({ percent = 0, children, ...props }) => {
     </S.Header>
   )
 }
+
+Header.propTypes = propTypes
 
 export default Header
