@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useEffect } from "react"
 import Header from "components/header"
 import Card from "components/card"
 import Content from "components/content"
@@ -7,9 +7,16 @@ import Button from "components/button"
 import Emoji from "components/emoji"
 import PageWrapper from "components/page-wrapper"
 import QUIZ_CONFIG from "utils/quizConfig"
+import preloadScreen from "utils/preloadScreen"
 import { PATHS } from "routes"
 
 const Home = ({ navigate }) => {
+  useEffect(() => {
+    // Preload the quiz screen once the home is mounted,
+    // as we already know that the user will go there next
+    preloadScreen(PATHS.QUIZ)
+  }, [])
+
   const begin = () => {
     navigate(PATHS.QUIZ)
   }

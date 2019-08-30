@@ -9,6 +9,7 @@ import PageWrapper from "components/page-wrapper"
 import ErrorMessage from "components/error-message"
 import QUIZ_CONFIG from "utils/quizConfig"
 import fetchQuestions from "api/fetchQuestions"
+import preloadScreen from "utils/preloadScreen"
 import { PATHS } from "routes"
 import useAnswersStore from "stores/answers"
 
@@ -29,6 +30,9 @@ const Quiz = ({ navigate }) => {
       if (questions?.length) {
         setQuestions(questions)
         setCurrentQuestion(1)
+        // Preload the results screen once we get the questions,
+        // as we already know that the user will go there next
+        preloadScreen(PATHS.RESULTS)
       } else {
         throw new Error("Empty results")
       }
