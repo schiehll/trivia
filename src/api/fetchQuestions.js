@@ -1,3 +1,4 @@
+import DOMPurify from "dompurify"
 import toDeepCamelCase from "camelcase-object-deep"
 import QUIZ_CONFIG from "utils/quizConfig"
 
@@ -8,7 +9,12 @@ const fetchQuestions = async () => {
 
   const questions = await response.json()
 
-  return toDeepCamelCase(questions)
+  return toDeepCamelCase(questions)?.results.map(result => {
+    return {
+      ...result,
+      question: DOMPurify.sanitize(result.question)
+    }
+  })
 }
 
 export default fetchQuestions

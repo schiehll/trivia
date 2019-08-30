@@ -1,5 +1,4 @@
 import React from "react"
-import DOMPurify from "dompurify"
 import Loader from "components/loader"
 
 import * as S from "./styles"
@@ -28,12 +27,7 @@ const Content = ({ children, loading, ...props }) => {
     return <S.Content {...props}>{children}</S.Content>
   }
 
-  return (
-    <S.Content
-      {...props}
-      dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(children) }}
-    />
-  )
+  return <S.Content {...props} dangerouslySetInnerHTML={{ __html: children }} />
 }
 
 export default Content

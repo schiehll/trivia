@@ -10,22 +10,27 @@ import ErrorMessage from "components/error-message"
 import QUIZ_CONFIG from "utils/quizConfig"
 import fetchQuestions from "api/fetchQuestions"
 import { PATHS } from "routes"
+import useAnswersStore from "stores/answers"
 
 const Quiz = ({ navigate }) => {
   const [error, setError] = useState(null)
   const [questions, setQuestions] = useState([])
   const [loading, setLoading] = useState(true)
   const [currentQuestion, setCurrentQuestion] = useState(0)
+  const addAnswer = useAnswersStore(state => state.addAnswer)
+
+  const question = questions[currentQuestion - 1]?.question || ""
+  const category = questions[currentQuestion - 1]?.category || "Loading..."
 
   const getQuestions = async () => {
     try {
       const questions = await fetchQuestions()
 
-      if (questions?.results.length) {
-        setQuestions(questions.results)
+      if (questions?.length) {
+        setQuestions(questions)
         setCurrentQuestion(1)
       } else {
-        throw new Error("Empty result")
+        throw new Error("Empty results")
       }
     } catch (error) {
       setError(error)
@@ -35,10 +40,15 @@ const Quiz = ({ navigate }) => {
   }
 
   const handleAnswer = answer => {
-    if (currentQuestion !== QUIZ_CONFIG.AMOUNT) {
+    addAnswer({
+      question,
+      isCorrect: questions[currentQuestion - 1]?.correctAnswer === answer
+    })
+
+    if (currentQuestion < QUIZ_CONFIG.AMOUNT) {
       setCurrentQuestion(currentQuestion + 1)
     } else {
-      navigate(PATHS.HOME)
+      navigate(PATHS.RESULTS)
     }
   }
 
@@ -47,9 +57,6 @@ const Quiz = ({ navigate }) => {
   useEffect(() => {
     getQuestions()
   }, [])
-
-  const question = questions[currentQuestion - 1]?.question || ""
-  const category = questions[currentQuestion - 1]?.category || "Loading..."
 
   if (error) {
     return <ErrorMessage error={error.message} navigate={navigate} />

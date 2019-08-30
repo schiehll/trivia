@@ -37,12 +37,6 @@ const theme = {
       small: 22,
       big: 40
     }
-  },
-
-  breakpoints: {
-    desktop: 1190,
-    tablet: 768,
-    phone: 420
   }
 }
 
